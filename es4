@@ -1,0 +1,4 @@
+SELECT Shippers.ShipperName, Orders.ShipperID, COUNT(Orders.ShipperID) AS numero_ordini
+FROM Orders, Shippers
+WHERE Orders.ShipperID = Shippers.ShipperID
+GROUP BY Orders.ShipperID
