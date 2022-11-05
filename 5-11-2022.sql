@@ -13,8 +13,9 @@ FROM
 ) AS T
 
 --completo
-SELECT Orders.CustomerId, COUNT(*) AS numero_ordini
-FROM Orders
+SELECT Customers.*, COUNT(*) AS numero_ordini
+FROM Orders, Customers
+WHERE Orders.CustomerId = Customers.CustomerId
 GROUP BY Orders.CustomerId
 HAVING COUNT(*) > (
 SELECT AVG(T.numero_ordini) AS media_ordini
