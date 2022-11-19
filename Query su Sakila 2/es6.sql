@@ -8,7 +8,7 @@ FROM actor, film_actor, film
 WHERE film_actor.actor_id = actor.actor_id 
     AND film.film_id = film_actor.film_id
 GROUP BY actor.actor_id
-HAVING numero_film > 35
-ORDER BY numero_film DESC;
+HAVING numero_film >= 35
+ORDER BY numero_film DESC, actor.last_name;
 
 
